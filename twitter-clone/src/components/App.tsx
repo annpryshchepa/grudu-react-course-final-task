@@ -1,20 +1,21 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./AuthProvider";
+import { Login } from "./Login";
+import { Signup } from "./Signup";
+import { NotFound } from './NotFound'
+import { HomePage } from "./HomePage";
 
 function App() {
   return (
     <Router>
-      <AuthProvider>
-        <Routes>
-          <Route path="/login" element={<div className="bg-red">login</div>} />
-          <Route
-            path="/singup"
-            element={<div className="bg-red">signup</div>}
-          />
-          <Route path="/" element={<div>home</div>} />
-          <Route path="*" element={<div>not found</div>} />
-        </Routes>
-      </AuthProvider>
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/signup"
+          element={<Signup />}
+        />
+        <Route path="/" element={<HomePage />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </Router>
   );
 }
